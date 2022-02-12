@@ -1,3 +1,5 @@
+from cmath import pi
+import random
 import pybullet as p
 import pybullet_data
 import time
@@ -13,10 +15,10 @@ planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
-backLegSensorValues = numpy.zeros(100)
-frontLegSensorValues = numpy.zeros(100)
+backLegSensorValues = numpy.zeros(1000)
+frontLegSensorValues = numpy.zeros(1000)
 
-for i in range(100):
+for i in range(1000):
     time.sleep(1/60)
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
@@ -29,10 +31,20 @@ for i in range(100):
 
         controlMode=p.POSITION_CONTROL,
 
-        targetPosition=0.0,
+        targetPosition= random.uniform(-pi/2.0, pi/2.0),
 
-        maxForce=500)
+        maxForce=50)
+    pyrosim.Set_Motor_For_Joint(
 
+        bodyIndex=robotId,
+
+        jointName="Torso_FrontLeg",
+
+        controlMode=p.POSITION_CONTROL,
+
+        targetPosition= random.uniform(-pi/2.0, pi/2.0),
+
+        maxForce=50)
 
 p.disconnect()
 numpy.save('data/backLegSensorValues.npy', backLegSensorValues)

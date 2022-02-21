@@ -1,3 +1,4 @@
+'''
 from cmath import pi
 import random
 import pybullet as p
@@ -17,6 +18,10 @@ planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
+
+
+
+
 backLegSensorValues = numpy.zeros(1000)
 frontLegSensorValues = numpy.zeros(1000)
 
@@ -74,3 +79,10 @@ numpy.save('data/backLegSensorValues.npy', backLegSensorValues)
 numpy.save('data/frontLegSensorValues.npy', frontLegSensorValues)
 numpy.save('data/targetAngles_BackLeg.npy', targetAngles_BackLeg)
 numpy.save('data/TargetAngles_FrontLeg', targetAngles_FrontLeg)
+
+'''
+
+from simulation import SIMULATION
+
+simulation = SIMULATION()
+simulation.run()

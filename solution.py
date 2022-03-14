@@ -1,5 +1,7 @@
 import numpy
 import pyrosim.pyrosim as pyrosim
+import os
+
 length = 1
 width = 1
 height = 1
@@ -17,6 +19,7 @@ class SOLUTION:
         self.Create_World()
         self.Generate_Body()
         self.Generate_Brain()
+        os.system("python3 simulate.py")
 
 
     def Create_World(self):

@@ -17,7 +17,11 @@ class HILL_CLIMBER:
         self.Spawn()
         self.Mutate()
         self.child.Evaluate()
+        self.Print()
         self.Select()
+
+    def Print(self):
+        print("Parent's Fitness: " + str(self.parent.fitness) + "Child's Fitness: " + str(self.child.fitness))
 
     def Spawn(self):
         self.child = copy.deepcopy(self.parent)

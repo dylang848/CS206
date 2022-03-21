@@ -1,3 +1,4 @@
+import os
 from pyrosim.neuron  import NEURON
 
 from pyrosim.synapse import SYNAPSE
@@ -15,10 +16,8 @@ class NEURAL_NETWORK:
         for line in f.readlines():
 
             self.Digest(line)
-
-
-
         f.close()
+        os.system("del " + nndfFileName)
 
     def Print(self):
         pass

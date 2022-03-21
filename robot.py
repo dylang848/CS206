@@ -46,12 +46,12 @@ class ROBOT:
 
 
 
-    def Get_Fitness(self):
+    def Get_Fitness(self, solutionID):
         stateOfLinkZero = p.getLinkState(self.robotId, 0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
-        f = open("tmp" + self.solutionID + ".txt", "w")
+        f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(xCoordinateOfLinkZero))
         f.close()
-        os.system("rename tmp" + str(self.solutionID) + ".txt fitness" + str(self.solutionID) + ".txt")
+        os.system("rename tmp" + str(solutionID) + ".txt fitness" + str(solutionID) + ".txt")
         exit()

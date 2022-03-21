@@ -21,6 +21,7 @@ class SOLUTION:
     def Evaluate(self, directOrGUI):
         pass
 
+
     def Start_Simulation(self, directOrGUI):
         self.Create_World()
         self.Generate_Body()

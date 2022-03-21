@@ -17,8 +17,9 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
 
-        self.world = world.WORLD()
+
         self.robot = robot.ROBOT(self.solutionID)
+        self.world = world.WORLD()
 
 
     def run(self):

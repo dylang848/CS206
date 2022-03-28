@@ -12,7 +12,7 @@ numberOfGenerations = 10
 
 maxForce = 35
 
-populationSize = 10
+populationSize = 8
 
 numSensorNeurons = 4
 numMotorNeurons = 8

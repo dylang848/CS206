@@ -20,7 +20,7 @@ class SOLUTION:
 
         for i in range(self.weights[0].size):
             for j in range(self.weights[:,0].size):
-                self.weights[j,1] = numpy.random.rand()
+                self.weights[j,1] = (numpy.random.rand() * 2) -1
         #self.weights = numpy.random.rand(3,2)
         self.weights = (self.weights * 2) -1
 

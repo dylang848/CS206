@@ -50,9 +50,17 @@ class ROBOT:
     def Get_Fitness(self, solutionID):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
+        zPosition = basePosition[2]
+
+        self.backLegSensorValue = self.sensors["LowerBackLeg"].getSumValues()
+        self.frontLegSensorValue = self.sensors["LowerFrontLeg"].getSumValues()
+        self.leftLegSensorValue = self.sensors["LowerLeftLeg"].getSumValues()
+        self.rightLegSensorValue = self.sensors["LowerRightLeg"].getSumValues()
+
+        self.legValues = (-self.backLegSensorValue/1000 - self.frontLegSensorValue/1000 - self.leftLegSensorValue/1000 - self.rightLegSensorValue/1000)
+
         f = open("tmp" + solutionID + ".txt", "w")
-        f.write(str(xPosition))
+        f.write(str(zPosition + self.legValues))
         f.close()
         os.system("rename tmp" + str(solutionID) + ".txt fitness" + str(solutionID) + ".txt")
         exit()

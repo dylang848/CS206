@@ -8,7 +8,7 @@ amplitude_FrontLeg = pi/4
 frequency_FrontLeg = 50
 phaseOffset_FrontLeg = 0
 
-numberOfGenerations = 10
+numberOfGenerations = 15
 
 maxForce = 35
 

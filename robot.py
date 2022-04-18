@@ -3,6 +3,7 @@ import pyrosim.pyrosim as pyrosim
 import os
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import constants as c
+import numpy
 
 from sensor import SENSOR
 from motor import MOTOR
@@ -26,8 +27,18 @@ class ROBOT:
     def Sense(self, timeStep):
         self.timeStep = timeStep
         for i in self.sensors:
-            self.sensor = self.sensors[i]
-            self.sensor.Get_Value(self.timeStep)
+            if(i == "LowerFrontLeg"):
+                self.sensorI = numpy.sin(500 * timeStep)
+            else:
+                self.sensor = self.sensors[i]
+                self.sensor.Get_Value(self.timeStep)
+
+
+
+
+
+            #self.sensor = self.sensors[i]
+            #self.sensor.Get_Value(self.timeStep)
 
     def Prepare_To_Act(self):
         self.motors = {}

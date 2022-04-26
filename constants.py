@@ -14,7 +14,7 @@ maxForce = 50
 
 populationSize = 8
 
-numSensorNeurons = 8
-numMotorNeurons = 16
+numSensorNeurons = 4
+numMotorNeurons = 8
 
 motorJointRange = 0.3
